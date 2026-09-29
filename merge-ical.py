@@ -16,9 +16,15 @@ def main():
     parent_calendar = fetch_calendar(parent_calendar_url)
     staff_calendar = fetch_calendar(staff_calendar_url)
 
-    merged_calendar : Calendar = merge_calendars([parent_calendar, staff_calendar])
-    with open("merged_calendar.ics", "wb") as f:
-        f.write(merged_calendar.to_ical())
+    try:
+        merged_calendar: Calendar = merge_calendars(
+            [parent_calendar, staff_calendar])
+        with open("tc-calendar.ics", "wb") as f:
+            f.write(merged_calendar.to_ical())
+        print("Merged calendar saved as tc-calendar.ics")
+    except Exception as e:
+        print(f"Error merging calendars: {e}")
+
 
 if __name__ == "__main__":
     main()

@@ -1,1 +1,2 @@
-tc-calendar.ics
+*.ics
+.env

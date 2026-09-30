@@ -1,1 +1,1 @@
-0 * * * * cd /app && python /app/merge-ical.py > /dev/stdout
+0 * * * * . /app/.env && cd /app && python /app/merge-ical.py > /dev/stdout

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinity College Staff ical Calendar</title>
+    <!-- Placeholders are replaced from environment variables by start.sh when the container starts. -->
+    <title>{{ PAGE_TITLE }}</title>
 </head>
 <body>
-    <h1>Trinity College Staff ical Calendar</h1>
-    <a href="tc-calendar.ics" download>Download Merged Calendar</a>
+    <h1>{{ PAGE_TITLE }}</h1>
+    <p>Download the merged calendar:</p>
+    <a href="{{ OUTPUT_FILENAME }}" download>{{ OUTPUT_FILENAME }}</a>
 </body>
 </html>

@@ -1,6 +1,6 @@
-# TC Libcal Calendar Merge App
+# iCal Merge App
 
-This docker app runs a small python script to host a merged ical feed of both the Trinity College Parents and Staff Libcal Calendars. The script is run evey hour by cron to regenerate the tc-calendar from Libcal. It is designed to be used as the source for importing into outlook for staff.
+This docker app runs a small python script to host a merged ical feed of provided calendars. The script is run evey hour by cron to regenerate calendar feed.
 
 ## Building the Image
 

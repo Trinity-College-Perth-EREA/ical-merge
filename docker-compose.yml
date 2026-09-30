@@ -1,0 +1,12 @@
+services:
+  ical-merge:
+    image: ghcr.io/trinity-college-perth-erea/ical-merge:latest
+    container_name: ical-merge
+    restart: unless-stopped
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      CALENDAR_URLS: ${CALENDAR_URLS}
+      OUTPUT_FILENAME: ${OUTPUT_FILENAME}
+      PAGE_TITLE: ${PAGE_TITLE}
+      PORT: ${PORT}

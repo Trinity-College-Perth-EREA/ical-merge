@@ -2,17 +2,28 @@
 
 This docker app runs a small python script to host a merged ical feed of provided calendars. The script is run evey hour by cron to regenerate calendar feed, and can be subscribed to or downloaded in your preferred calendar.
 
-## Building the Image
+## Quick start
 
-To build the image locally, run:
+Docker standalone:
 
-```docker build -t ical-merge .```
+```docker run -d -p 8080:8080 -e CALENDAR_URLS="<comma separated url list>" -e PAGE_TITLE="<html page title>" -e OUTPUT_FILENAME="<ics filename>" --name ical-merge ical-merge:latest```
 
-## Running the image
+Docker compose:
+```
+services:
+  ical-merge:
+    image: ghcr.io/trinity-college-perth-erea/ical-merge:latest
+    container_name: ical-merge
+    restart: unless-stopped
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      CALENDAR_URLS: ${CALENDAR_URLS}
+      OUTPUT_FILENAME: ${OUTPUT_FILENAME}
+      PAGE_TITLE: ${PAGE_TITLE}
+      PORT: ${PORT}
+```
 
-The script defaults to port `8080`. This can be adjusted in the run command.
-
-```docker run -d -p 8080:8080 --name ical-merge ical-merge:latest```
 ## Environment variables
 
 | Variable | Default | Description |
@@ -22,6 +33,9 @@ The script defaults to port `8080`. This can be adjusted in the run command.
 | `PAGE_TITLE` | `Merged Calendar` | Title and heading shown on the landing page. |
 | `PORT` | `8080` | Port the web server listens on inside the container. |
 
-Example:
 
-```docker run -d -p 8080:8080 -e CALENDAR_URLS="https://example.com/a.ics,https://example.com/b.ics" -e PAGE_TITLE="Staff Calendar" -e OUTPUT_FILENAME="staff-calendar.ics" --name ical-merge ical-merge:latest```
+## Building the Image
+
+To build the image locally, run:
+
+```docker build -t ical-merge .```

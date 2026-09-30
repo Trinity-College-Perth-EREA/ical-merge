@@ -1,6 +1,6 @@
 # iCal Merge App
 
-This docker app runs a small python script to host a merged ical feed of provided calendars. The script is run evey hour by cron to regenerate calendar feed, and can be subscribed to or downloaded in your preferred calendar.
+This docker app runs a small python script to host a merged ical feed of provided calendars. The script is run every hour by cron to regenerate calendar feed, and can be subscribed to or downloaded in your preferred calendar.
 
 ## Quick start
 
